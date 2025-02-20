@@ -1,32 +1,27 @@
 let todoArr = [];
+window.addEventListener("load", start);
 
-// const toDoListQsl = document.querySelector(".to_do_list");
-// const toDOarr = [
-//   { id: self.crypto.randomUUID(), text: "Gåtur med elephanten", done: false },
-//   { id: self.crypto.randomUUID(), text: "Gåtur med Johan", done: true },
-//   { id: self.crypto.randomUUID(), text: "Gåtur alene", done: false },
-// ];
-
-start();
 function start() {
-  console.log("ready");
   // Retrieving the string
   let retString = localStorage.getItem("key");
   // Retrieved array
   todoArr = JSON.parse(retString);
+  // Update Array from localstorage
   updateArr();
   // TODO: Add event-listeners to completed button and inputfield
   registerButtons();
 }
 
 function registerButtons() {
+  // ADD event listener
   document.querySelector(".input button").addEventListener("click", createObj);
 }
 
-function createObj(evt) {
+function createObj() {
   // clear the list
   document.querySelector("#list tbody").innerHTML = "";
 
+  // GAMMEL DATO TING
   // const month = new Date().getMonth(); // months from 1-12
   // const day = new Date().getDate();
   // const year = new Date().getFullYear();
@@ -35,12 +30,11 @@ function createObj(evt) {
   //Finder datoen som blivergivet af input
   const date = inputDate.value;
 
-  console.log(date);
-  //Finder datoen som blivergivet af input
-
+  // Deler datoen op fordi den venner den forkerte vej
   let tododateyear = "";
   let tododatemonth = "";
   let tododateday = "";
+  // Tjekker om der er en tom ting i datoen
   if (date === "") {
     removeWarning();
     return;
@@ -50,8 +44,10 @@ function createObj(evt) {
     tododateday = date.substring(date.lastIndexOf("-") + 1);
   }
 
+  // Sætter datoen sammen
   const realdate = `${tododateday}${tododatemonth}-${tododateyear}`;
 
+  // Laver objected
   const taskObject = {
     text: text.value,
     id: self.crypto.randomUUID(),
@@ -59,27 +55,30 @@ function createObj(evt) {
     date: realdate,
   };
 
+  // Tilføjer objected til arrayet
   todoArr.push(taskObject);
 
-  // todoArr.forEach(displayTask);
+  // sender opatering til arr
   updateArr();
 }
 
+// TIngen der popper op når man mangler en dato
 function removeWarning() {
-  //ask the user to ignore, or remove 'other'
   document.querySelector("#remove_other").classList.remove("hide");
   document.querySelector("#remove_other .closebutton").addEventListener("click", closeDialog);
-
-  //if ignore - do nothing ..
   function closeDialog() {
     document.querySelector("#remove_other").classList.add("hide");
     document.querySelector("#remove_other .closebutton").removeEventListener("click", closeDialog);
   }
+
+  // sender opatering til arr
   updateArr();
 }
 
 function updateArr() {
+  // resetter templaten
   document.querySelector("#list tbody").innerHTML = "";
+  // sortere i forehold til done boolean
   todoArr.sort(function (a, b) {
     if (a.done > b.done) {
       return 1;
@@ -87,14 +86,14 @@ function updateArr() {
       return -1;
     }
   });
+  // Tilføjer updatering til localstorage
   let localeArr = JSON.stringify(todoArr);
   localStorage.setItem("key", localeArr);
-  console.log(localeArr);
+  // sender til visualisering af data
   todoArr.forEach(displayTask);
 }
 
 function displayTask(task) {
-  console.log("wow", task);
   const clone = document.querySelector("template#task").content.cloneNode(true);
 
   // set clone data
