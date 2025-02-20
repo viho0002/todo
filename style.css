@@ -1,0 +1,185 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #c7c7c7;
+}
+
+/* MAIN DIV */
+
+.main {
+  width: 40vw;
+  height: 80vh;
+  margin: 2% auto;
+  background-color: #f4f4f4;
+  color: #212121;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  box-shadow: 1px 1px 3px black;
+  padding: 2% 4%;
+  border-radius: 2%;
+}
+
+/* OVERSKRIFT */
+.caption {
+  font-size: 5rem;
+  font-family: "Courier New", Courier, monospace;
+  border-bottom: 5px dotted #293331;
+  font-weight: 500;
+  text-align: center;
+}
+
+/* TABLE OVERALL */
+
+table {
+  width: 100%;
+  /* box-shadow: inset black 1px 1px 20px; */
+  padding: 2%;
+}
+
+thead {
+  height: 50px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 1rem;
+}
+
+.table-hold {
+  height: 70%;
+  width: 100%;
+  overflow: scroll;
+}
+
+/* TABLE ROWS */
+tr {
+  padding: 5px 10px;
+  background-color: rgb(222, 222, 222);
+}
+
+thead tr {
+  background-color: #f4f4f4;
+}
+
+.done {
+  background-color: rgb(142, 193, 122);
+  filter: opacity(0.8);
+}
+.done [data-field="text"],
+.done [data-field="date"] {
+  text-decoration: line-through;
+}
+
+/* TD */
+td {
+  border: 1px solid #2d3533;
+  padding: 5px 10px;
+  white-space: wrap;
+  text-overflow: wrap;
+  overflow: hidden;
+}
+
+td[data-field="text"] {
+  width: 80%;
+}
+
+td[data-field="del"] {
+  cursor: pointer;
+  background-color: rgb(188, 98, 98);
+  color: white;
+}
+
+td[data-field="del"]:hover {
+  background-color: rgb(212, 72, 72);
+}
+
+td[data-field="done"] {
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+td[data-field="done"]:hover {
+  background-color: rgb(142, 193, 122);
+  color: white;
+}
+
+/* INPUTTT */
+
+.input {
+  padding: 2% 1%;
+  border-top: 5px dotted #293331;
+  display: flex;
+  height: 50px;
+  gap: 5%;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.input #text {
+  width: 80%;
+  height: 30px;
+  place-self: center center;
+}
+
+.input #inputDate {
+  height: 30px;
+  place-self: center center;
+  cursor: pointer;
+}
+
+.input button {
+  height: 30px;
+  width: 10%;
+  background-color: rgb(160, 173, 220);
+  color: #f4f4f4;
+  cursor: pointer;
+  border-radius: 5px;
+  place-self: center center;
+  font-weight: 700;
+  border: 1px solid rgb(0, 0, 0);
+}
+
+.input button:hover {
+  background-color: rgb(92, 119, 217);
+}
+
+/* WARNING CSS */
+.hide {
+  visibility: hidden;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(68, 70, 62, 0.488);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dialog {
+  font-family: "Courier New", Courier, monospace;
+  box-shadow: 1px 1px 10px black;
+  border-radius: 12px;
+  padding: 2em;
+  background-color: rgb(218, 218, 218);
+  position: relative;
+}
+
+.dialog h1 {
+  margin-top: 0;
+}
+
+.dialog p {
+  font-size: 1.2rem;
+}
+
+button.closebutton {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 2em;
+  height: 2em;
+  border-radius: 50%;
+}

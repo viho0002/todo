@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="script.js"></script>
+    <title>Todo List</title>
+</head>
+
+<body>
+    <div class="main">
+        <h1 class="caption">To Do</h1>
+
+        <div class="table-hold">
+            <table id="list">
+                <!-- <caption>
+                To Do
+            </caption> -->
+                <thead>
+                    <tr id="sorting">
+                        <th data-action="sort" data-sort-direction="asc" data-sort="done"></th>
+                        <th data-action="sort" data-sort-direction="asc" data-sort="text">Projects</th>
+                        <th data-action="sort" data-sort-direction="asc" data-sort="date">Todo date</th>
+                        <th data-action="sort" data-sort-direction="asc" data-sort="del"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Templaten kommer til at ende her -->
+                </tbody>
+
+            </table>
+        </div>
+        <div class="input">
+            <button>add</button>
+            <input type="text" name="text" id="text">
+            <input type="date" name="inputDate" id="inputDate">
+        </div>
+
+    </div>
+
+    <template id="task">
+        <tr>
+            <td data-field="done" data-done="false">✔</td>
+            <td data-field="text">NOTER</td>
+            <td data-field="date">DATE</td>
+            <td data-field="del" data-del="false">DEL</td>
+        </tr>
+    </template>
+
+    <!-- WOWOWOWOOW -->
+
+    <div id="remove_other" class="modal hide">
+        <div class="dialog">
+            <button class="closebutton">X</button>
+            <h1>Warning!</h1>
+            <p>Remember to pick a todo date</p>
+        </div>
+    </div>
+
+    <!-- WOWOWOWOOW -->
+
+
+</body>
+
+</html>

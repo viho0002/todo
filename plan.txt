@@ -1,0 +1,27 @@
+Object skal indholde disse properties
+ - Task-string = hvad er det der skal gøres/købes
+ - Hvor mange = hvis det er et inkøb
+ - done = er inkøbet udført / er tasken done
+ - ID
+
+ Der skal holdes en liste over de task der er done
+
+ (Inspiration: klik reminders/påmindelser på og download todo-apps og prøv dem)
+
+ 
+Skal få remove til at virke
+- skal have en click function der virker skal gøre så den der bliver tegettet kan pop den selv?
+- kan ikke se hvorfor det ikke virker
+
+Skal få done til at virke
+- skal gøre sådan at den man klikker på skulde kunne ændre sine fonts
+
+
+
+opdateret look
+
+tænk over ny input date
+
+få input in i localdata og ud igen
+
+skriv document
